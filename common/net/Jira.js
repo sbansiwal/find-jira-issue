@@ -39,27 +39,35 @@ class Jira {
     }
   }
   
-  async getIssueStatus (issueId, query = {}) {
-    const { fields = [], expand = [] } = query
-
-    try {
-      const res = await this.fetch('getIssueStatus', {
-        pathname: `/rest/api/2/issue/${issueId}?fields=status`,
-        query: {
-          fields: fields.join(','),
-          expand: expand.join(','),
-        },
-       })
-
-      return res
-    } catch (error) {
-      if (get(error, 'res.status') === 404) {
-        return
-      }
-
-      throw error
-    }
+  async getIssueStatus (issueId) {
+    return this.fetch('getIssueStatus', {
+      pathname: `/rest/api/2/status/${issueId}`,
+    }, {
+      method: 'GET',
+    })
   }
+ 
+//   async getIssueStatus (issueId, query = {}) {
+//     const { fields = [], expand = [] } = query
+
+//     try {
+//       const res = await this.fetch('getIssueStatus', {
+//         pathname: `/rest/api/2/issue/${issueId}?fields=status`,
+//         query: {
+//           fields: fields.join(','),
+//           expand: expand.join(','),
+//         },
+//        })
+
+//       return res
+//     } catch (error) {
+//       if (get(error, 'res.status') === 404) {
+//         return
+//       }
+
+//       throw error
+//     }
+//   }
   
   async getIssueTransitions (issueId) {
     return this.fetch('getIssueTransitions', {
