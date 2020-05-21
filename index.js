@@ -19,7 +19,9 @@ async function exec () {
     }).execute()
 
     if (result) {
-      console.log(`Detected issueKey: ${result.issue}`)
+      var issueStatus = walk(result.issue);
+      console.log(`Detected issueKey: ${result.issue.key}`)
+      console.log(`Detected issueStatus: ${issueStatus}`)
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
       console.log(`Under index.js`)
