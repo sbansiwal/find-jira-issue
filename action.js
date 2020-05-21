@@ -34,9 +34,10 @@ module.exports = class {
 
     for (const issueKey of match) {
       const issue = await this.Jira.getIssue(issueKey)
-
+      const issueStatus = await.this.JIra.getIssueStatus(issueKey)
+      
       if (issue) {
-        return { issue: issue.status }
+        return { issue: issueStatus.name }
       }
     }
   }
