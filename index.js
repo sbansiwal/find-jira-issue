@@ -21,7 +21,7 @@ async function exec () {
     if (result) {
       console.log(`Detected issueKey: ${result.issue}`)
       //console.log(`Detected issueID: ${result.issue.id}`)
-      console.log(`Detected issueStatus: ${result.issueStatus}`)
+      console.log(`Detected issueStatus: ${result.ID}`)
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
       console.log(`Under index.js`)
