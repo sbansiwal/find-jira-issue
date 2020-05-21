@@ -38,7 +38,23 @@ class Jira {
       throw error
     }
   }
+  
+  async getIssueStatus (issueId) {
+    try {
+      const res = await this.fetch('getIssue', {
+        pathname: `/rest/api/2/issue/${issueId}?fields=status`,
+      })
 
+      return res
+    } catch (error) {
+      if (get(error, 'res.status') === 404) {
+        return
+      }
+
+      throw error
+    }
+  }
+  
   async getIssueTransitions (issueId) {
     return this.fetch('getIssueTransitions', {
       pathname: `/rest/api/2/issue/${issueId}/transitions`,
