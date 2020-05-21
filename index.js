@@ -22,6 +22,7 @@ async function exec () {
       console.log(`Detected issueKey: ${result.issue}`)
       //console.log(`check updated code`)
       console.log(`Detected issueStatus: ${result.status}`)
+      console.log(`Detected issue transition: ${result.trans}`)
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
       console.log(`Under index.js`)
