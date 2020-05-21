@@ -1,0 +1,53 @@
+{
+  "plugins": [
+    "jest"
+  ],
+  "extends": [
+    "airbnb",
+    "standard",
+    "standard-react",
+    "plugin:jest/recommended"
+  ],
+  "parser": "babel-eslint",
+  "env": {
+    "jest/globals": true
+  },
+  "rules": {
+    "class-methods-use-this": "off",
+    "comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "never",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    }],
+    "consistent-return": "off",
+    "indent": ["error", 2],
+    "no-await-in-loop": "off",
+    "no-console": "warn",
+    "no-param-reassign": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "no-underscore-dangle": ["error", { "allowAfterThis": true }],
+    "object-curly-newline": ["error", { "consistent": true }],
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": "*", "next": "throw" },
+      { "blankLine": "always", "prev": "directive", "next": "*" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]},
+      { "blankLine": "any", "prev": "directive", "next": "directive" }
+    ],
+    "react/destructuring-assignment": "off",
+    "react/forbid-prop-types": "off",
+    "react/jsx-curly-spacing": [2, {
+      "when": "never",
+      "allowMultiline": true,
+      "attributes": true,
+      "children": true
+    }],
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "warn"
+  }
+}

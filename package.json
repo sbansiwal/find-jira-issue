@@ -1,0 +1,44 @@
+{
+  "name": "find",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=testing jest",
+    "build": "ncc build index.js --minify",
+    "watch": "ncc build index.js --watch --minify"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^2.2.0",
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.3.0",
+    "yaml": "^1.10.0"
+  },
+  "devDependencies": {
+    "@atlassian-partner-engineering/eslint-config": "^2.3.2",
+    "@zeit/ncc": "^0.20.4",
+    "eslint": "^5.13.0",
+    "jest": "^24.1.0",
+    "jest-junit": "^6.2.1",
+    "nock": "^10.0.6"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/helpers/",
+      "/node_modules/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text",
+      "clover"
+    ],
+    "coverageDirectory": "../test-results"
+  }
+}
