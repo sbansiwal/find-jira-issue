@@ -37,7 +37,7 @@ module.exports = class {
       const issueStatus = await this.Jira.getIssueStatus(issueKey)
       
       if (issue) {
-        return { issue: issue}
+        return { issue: issue.key, status: issueStatus}
       }
     }
   }
