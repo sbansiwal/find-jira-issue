@@ -50,4 +50,16 @@ function parseArgs () {
   }
 }
 
+function walk(obj) {
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      var val = obj[key];
+      if (key == 'status') {
+        return val
+      }
+      walk(val)
+    }
+  }
+}
+
 exec()
