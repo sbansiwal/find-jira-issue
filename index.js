@@ -19,9 +19,8 @@ async function exec () {
     }).execute()
 
     if (result) {
-      var issueStatus = walk(result.issue);
       console.log(`Detected issueKey: ${result.issue.key}`)
-      console.log(`Detected issueStatus: ${issueStatus}`)
+      console.log(`Detected issueStatus: ${result.issue.key}`)
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
       console.log(`Under index.js`)
@@ -49,18 +48,6 @@ function parseArgs () {
     event: core.getInput('event') || config.event,
     string: core.getInput('string') || config.string,
     from: core.getInput('from'),
-  }
-}
-
-function walk(obj) {
-  for (var key in obj) {
-    if (obj.hasOwnProperty(key)) {
-      var val = obj[key];
-      if (key == 'status') {
-        return val
-      }
-      walk(val)
-    }
   }
 }
 
