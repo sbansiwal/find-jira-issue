@@ -22,6 +22,7 @@ async function exec () {
       console.log(`Detected issueKey: ${result.issue}`)
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
+      console.log(`Under index.js`)
 
       // Expose created issue's key as an output
       core.setOutput('issue', result.issue)
