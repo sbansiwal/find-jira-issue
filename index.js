@@ -31,10 +31,8 @@ async function exec () {
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
       console.log(`Under index.js`)
-       
-      var status = result.status;
       
-      if (status == 'Done') {
+      if (result.status == 'Done') {
         core.setFailed(`The issue status is done`)
       }
 
