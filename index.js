@@ -31,6 +31,10 @@ async function exec () {
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
       console.log(`Under index.js`)
+      
+      if (${result.status} == 'Done') {
+        core.setFailed(`The issue status is done`)
+      }
 
       // Expose created issue's key as an output
       core.setOutput('issue', result.issue)
