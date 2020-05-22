@@ -38,7 +38,7 @@ module.exports = class {
       const transitions = await this.Jira.getIssueTransitions(issueKey)
       
       if (issue) {
-        return { issue: issue, status: issueStatus, trans: transitions.transitions}
+        return { issue: issue, trans: transitions.transitions}
       }
     }
   }
