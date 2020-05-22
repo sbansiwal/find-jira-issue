@@ -22,6 +22,7 @@ async function exec () {
       console.log(`Detected issueKey: ${result.issue}`)
       //console.log(`check updated code`)
       console.log(`Detected issueStatus: ${result.status}`)
+      console.log(`Transitions : ${JSON.stringify(result.trans)}`)
       console.log(`Detected issue transition 1: ${result.trans.name}`)
       console.log(`Detected issue transition 2: ${result.trans.to.name}`)
       //console.log(`Detected issue transition 3: ${result.trans.to.StatusCategory.name}`)
