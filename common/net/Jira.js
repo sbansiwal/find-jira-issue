@@ -40,14 +40,15 @@ class Jira {
   }
  
   async getIssueStatus (issueId, query = {}) {
-    const { fields = [], expand = [] } = query
-
+    //const { fields = [], expand = [] } = query
+    const { status = [] } = query 
     try {
       const res = await this.fetch('getIssueStatus', {
         pathname: `/rest/api/2/issue/${issueId}?fields=status`,
         query: {
-          fields: fields.join(','),
-          expand: expand.join(','),
+//           fields: fields.join(','),
+//           expand: expand.join(','),
+           status: status.join(','),
         },
        })
 
