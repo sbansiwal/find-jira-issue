@@ -33,6 +33,7 @@ async function exec () {
       console.log(`Under index.js`)
       
       if (result.status == 'Done') {
+        console.log(`Issue done`)
         core.setFailed(`The issue status is done`)
       }
 
