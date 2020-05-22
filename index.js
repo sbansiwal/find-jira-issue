@@ -21,7 +21,7 @@ async function exec () {
     if (result) {
       console.log(`Detected issueKey: ${result.issue.key}`)
       console.log(`Detected issueID : ${result.issue.id}`)
-      console.log(`Issue status: ${result.issue.status.name}`)
+      console.log(`Issue status: ${result.issue.fields.status.name}`)
       //console.log(`check updated code`)
       //console.log(`Detected issueStatus: ${JSON.stringify(result.status)}`)
       //console.log(`Transitions : ${JSON.stringify(result.trans)}`)
