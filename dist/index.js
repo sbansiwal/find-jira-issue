@@ -23921,7 +23921,7 @@ async function exec () {
       //console.log(`Detected issue transition 3: ${result.trans.to.StatusCategory.name}`)
       console.log(`Saving ${result.issue} to ${cliConfigPath}`)
       console.log(`Saving ${result.issue} to ${configPath}`)
-      console.log(`Under index.js`)
+      //console.log(`Under index.js`)
       
       if (result.status == 'Done') {
         console.log(`Issue done`)
