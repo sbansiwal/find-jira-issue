@@ -29,7 +29,7 @@ module.exports = class {
     if (!match) {
       console.log(`String "${extractString}" does not contain issueKeys`)
     } else {
-      return 'none'
+      return {error: 'none'}
     }
 
     for (const issueKey of match) {
@@ -38,9 +38,9 @@ module.exports = class {
       //const transitions = await this.Jira.getIssueTransitions(issueKey)
       
       if (issue) {
-        return { issue: issue.key, status: issue.fields.status.name}
+        return {issue: issue.key, status: issue.fields.status.name}
       } else {
-        return 'invalid'
+        return {error: 'invalid'}
       }
 
     }

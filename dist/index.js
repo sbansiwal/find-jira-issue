@@ -23845,7 +23845,7 @@ module.exports = class {
     if (!match) {
       console.log(`String "${extractString}" does not contain issueKeys`)
     } else {
-      return 'none'
+      return {error: 'none'}
     }
 
     for (const issueKey of match) {
@@ -23854,9 +23854,9 @@ module.exports = class {
       //const transitions = await this.Jira.getIssueTransitions(issueKey)
       
       if (issue) {
-        return { issue: issue.key, status: issue.fields.status.name}
+        return {issue: issue.key, status: issue.fields.status.name}
       } else {
-        return 'invalid'
+        return {error: 'invalid'}
       }
 
     }
@@ -23948,11 +23948,11 @@ async function exec () {
       return fs.appendFileSync(cliConfigPath, yamledResult)
     }
 
-    return console.log(`No issueKey found`)
-    if (result == 'none') {
+    //return console.log(`No issueKey found`)
+    if (result.error == 'none') {
       console.log(`No issue key found`)
       core.setFailed(`No issue key found`)
-    } else if (result == 'invalid') {
+    } else if (result.error == 'invalid') {
       console.log(`Invalid issue key`)   
       core.setFailed(`Invalid issue key`)
     }
