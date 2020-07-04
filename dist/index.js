@@ -23844,7 +23844,6 @@ module.exports = class {
 
     if (!match) {
       console.log(`String "${extractString}" does not contain issueKeys`)
-      return "none"
     }
 
     for (const issueKey of match) {
@@ -23855,9 +23854,7 @@ module.exports = class {
       if (issue) {
         return { issue: issue.key, status: issue.fields.status.name}
       }
-      else {
-        return "invalid"
-      }
+      
     }
   }
 
@@ -23947,14 +23944,15 @@ async function exec () {
       return fs.appendFileSync(cliConfigPath, yamledResult)
     }
 
-    if (result == "none") {
-      console.log(`No issue key found`)
-      core.setFailed(`No issue key found`)
-    } else if (result == "invalid") {
-      console.log(`Invalid issue key`)   
-      core.setFailed(`Invalid issue key`)
-    }
-    
+    return console.log(`No issueKey found`)
+    // if (result == "none") {
+    //   console.log(`No issue key found`)
+    //   core.setFailed(`No issue key found`)
+    // } else if (result == "invalid") {
+    //   console.log(`Invalid issue key`)   
+    //   core.setFailed(`Invalid issue key`)
+    // }
+
     core.setNeutral()
   } catch (error) {
     core.setFailed(error.toString())

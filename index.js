@@ -48,14 +48,15 @@ async function exec () {
       return fs.appendFileSync(cliConfigPath, yamledResult)
     }
 
-    if (result == "none") {
-      console.log(`No issue key found`)
-      core.setFailed(`No issue key found`)
-    } else if (result == "invalid") {
-      console.log(`Invalid issue key`)   
-      core.setFailed(`Invalid issue key`)
-    }
-    
+    return console.log(`No issueKey found`)
+    // if (result == "none") {
+    //   console.log(`No issue key found`)
+    //   core.setFailed(`No issue key found`)
+    // } else if (result == "invalid") {
+    //   console.log(`Invalid issue key`)   
+    //   core.setFailed(`Invalid issue key`)
+    // }
+
     core.setNeutral()
   } catch (error) {
     core.setFailed(error.toString())
