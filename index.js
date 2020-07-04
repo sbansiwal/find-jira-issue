@@ -20,21 +20,21 @@ async function exec () {
 
     if (result) {
       console.log(`Detected issueKey: ${result.issue}`)
-      //console.log(`Detected issueID : ${result.issue.id}`)
       console.log(`Issue status: ${result.status}`)
+      console.log(`Saving ${result.issue} to ${cliConfigPath}`)
+      console.log(`Saving ${result.issue} to ${configPath}`)     
+      //console.log(`Detected issueID : ${result.issue.id}`)
       //console.log(`check updated code`)
       //console.log(`Detected issueStatus: ${JSON.stringify(result.status)}`)
       //console.log(`Transitions : ${JSON.stringify(result.trans)}`)
       //console.log(`Detected issue transition 1: ${result.trans.name}`)
       //console.log(`Detected issue transition 2: ${result.trans.to.name}`)
       //console.log(`Detected issue transition 3: ${result.trans.to.StatusCategory.name}`)
-      console.log(`Saving ${result.issue} to ${cliConfigPath}`)
-      console.log(`Saving ${result.issue} to ${configPath}`)
       //console.log(`Under index.js`)
       
-      if (result.status == 'Done') {
-        console.log(`Issue done`)
-        core.setFailed(`The issue status is done`)
+      // Check issue status
+      if (result.status == 'Done' || result.status == 'DONE') {
+        core.setFailed(`The issue is already marked as Done`)
       }
 
       // Expose created issue's key as an output
@@ -48,7 +48,14 @@ async function exec () {
       return fs.appendFileSync(cliConfigPath, yamledResult)
     }
 
-    console.log('No issueKeys found.')
+    if (result == "none") {
+      console.log(`No issue key found`)
+      core.setFailed(`No issue key found`)
+    } else if (result == "invalid") {
+      console.log(`Invalid issue key`)   
+      core.setFailed(`Invalid issue key`)
+    }
+    
     core.setNeutral()
   } catch (error) {
     core.setFailed(error.toString())
