@@ -49,13 +49,13 @@ async function exec () {
     }
 
     //return console.log(`No issueKey found`)
-    if (result.error == 'none') {
-      console.log(`No issue key found`)
-      core.setFailed(`No issue key found`)
-    } else if (result.error == 'invalid') {
-      console.log(`Invalid issue key`)   
-      core.setFailed(`Invalid issue key`)
-    }
+    // if (result.error == 'none') {
+    //   console.log(`No issue key found`)
+    //   core.setFailed(`No issue key found`)
+    // } else if (result.error == 'invalid') {
+    //   console.log(`Invalid issue key`)   
+    //   core.setFailed(`Invalid issue key`)
+    // }
 
     core.setNeutral()
   } catch (error) {

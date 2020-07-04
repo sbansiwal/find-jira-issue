@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const Jira = require('./common/net/Jira')
+const core = require('@actions/core')
 
 const issueIdRegEx = /([a-zA-Z0-9]+-[0-9]+)/g
 
@@ -28,8 +29,7 @@ module.exports = class {
 
     if (!match) {
       console.log(`String "${extractString}" does not contain issueKeys`)
-    } else {
-      return {error: 'none'}
+      core.setFailed(`Commit message does not contain issue key`)
     }
 
     for (const issueKey of match) {
@@ -40,7 +40,7 @@ module.exports = class {
       if (issue) {
         return {issue: issue.key, status: issue.fields.status.name}
       } else {
-        return {error: 'invalid'}
+          core.setFailed(`Invalid issue key`)
       }
 
     }
