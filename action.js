@@ -28,6 +28,8 @@ module.exports = class {
 
     if (!match) {
       console.log(`String "${extractString}" does not contain issueKeys`)
+    } else {
+      return 'none'
     }
 
     for (const issueKey of match) {
@@ -37,8 +39,10 @@ module.exports = class {
       
       if (issue) {
         return { issue: issue.key, status: issue.fields.status.name}
+      } else {
+        return 'invalid'
       }
-      
+
     }
   }
 
