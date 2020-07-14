@@ -13,7 +13,7 @@ inputs:
   from:
     description: Find from predefined place (should be either 'branch', or 'commits', default is 'commits')
     required: false
-    default: commits
+    default: pull_request
 outputs:
   issue:
     description: Key of the found issue
